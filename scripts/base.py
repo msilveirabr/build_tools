@@ -514,12 +514,13 @@ def get_branding_repositories(checker):
 
 def create_pull_request(branches_to, repo, is_no_errors=False, is_current_dir=False):
   print("[git] create pull request: " + repo)
+  ltirepo = [ "server", "web-apps" ]
   url = "https://github.com/ONLYOFFICE/" + repo + ".git"
-  if (repo == "server"):
+  if (repo in ltirepo):
     url = "https://github.com/msilveirabr/" + repo + ".git"
   if config.option("git-protocol") == "ssh":
     url = "git@github.com:ONLYOFFICE/" + repo + ".git"
-    if (repo == "server"):
+    if (repo in ltirepo):
       url = "git@github.com:msilveirabr/" + repo + ".git"
   folder = get_script_dir() + "/../../" + repo
   if is_current_dir:

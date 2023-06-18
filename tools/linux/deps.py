@@ -55,7 +55,7 @@ def install_deps():
   except:
     nodejs_cur = 1
   if (nodejs_cur < 14000):
-    print("Node.js version cannot be less 14")
+    print("Node.js version cannot be less 14 (" + str(nodejs_cur) + ")")
     print("Reinstall")
     if (base.is_dir("./node_js_setup_14.x")):
       base.delete_dir("./node_js_setup_14.x")
