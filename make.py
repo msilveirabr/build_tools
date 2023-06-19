@@ -52,6 +52,8 @@ config.parse_defaults()
 base.check_build_version(base_dir)
 
 # update
+print("PRE-UPDATE Print")
+
 if ("1" == config.option("update")):
   repositories = base.get_repositories()
   base.update_repositories(repositories)
