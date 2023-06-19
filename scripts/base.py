@@ -67,7 +67,7 @@ def check_build_version(dir):
       version_number = version_number.replace("\n", "")
       set_env("PRODUCT_VERSION", version_number)
   if ("" == get_env("BUILD_NUMBER")):
-    set_env("BUILD_NUMBER", "0")      
+    set_env("BUILD_NUMBER", "0")
   return
 
 def print_info(info=""):
@@ -188,7 +188,7 @@ def copy_dir(src, dst):
   if is_dir(dst):
     delete_dir(dst)
   try:
-    shutil.copytree(get_path(src), get_path(dst))    
+    shutil.copytree(get_path(src), get_path(dst))
   except OSError as e:
     print('Directory not copied. Error: %s' % e)
   return
@@ -380,7 +380,7 @@ def run_command(sCommand):
   finally:
     popen.stdout.close()
     popen.stderr.close()
-  
+
   return result
 
 def run_command_in_dir(directory, sCommand):
@@ -395,7 +395,7 @@ def run_command_in_dir(directory, sCommand):
   if (host == 'windows'):
     os.chdir(cur_dir)
   return ret
-  
+
 def exec_command_in_dir(directory, sCommand):
   host = host_platform()
   if (host == 'windows'):
@@ -442,7 +442,9 @@ def set_cwd(dir):
 
 # git ---------------------------------------------------
 def git_update(repo, is_no_errors=False, is_current_dir=False, git_owner=""):
+  ltirepo = [ "server", "web-apps" ]
   print("[git] update: " + repo)
+  owner = "msilveirabr" if any(repo in s for s in ltirepo) else git_owner
   owner = git_owner if git_owner else "ONLYOFFICE"
   url = "https://github.com/" + owner + "/" + repo + ".git"
   if config.option("git-protocol") == "ssh":
