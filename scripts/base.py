@@ -442,7 +442,8 @@ def set_cwd(dir):
 
 # git ---------------------------------------------------
 def git_update(repo, is_no_errors=False, is_current_dir=False, git_owner=""):
-  print("[git] update: " + repo)
+  print("MARCADOR")
+  print("Updating git repo: " + repo)
   ltirepo = [ "server", "web-apps" ]
   owner = "msilveirabr" if any(repo in s for s in ltirepo) else git_owner
   owner = git_owner if git_owner else "ONLYOFFICE"
