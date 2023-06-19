@@ -478,7 +478,7 @@ def get_repositories():
   result["sdkjs"] = [False, False]
   result.update(get_sdkjs_addons())
   result["onlyoffice.github.io"] = [False, False]
-  result["web-apps"] = [False, False]
+  result["web-apps2"] = [False, False]
   result.update(get_web_apps_addons())
   result["dictionaries"] = [False, False]
   result["core-fonts"] = [False, False]
@@ -514,7 +514,7 @@ def get_branding_repositories(checker):
 
 def create_pull_request(branches_to, repo, is_no_errors=False, is_current_dir=False):
   print("[git] create pull request: " + repo)
-  ltirepo = [ "server", "web-apps" ]
+  ltirepo = [ "server", "web-apps2" ]
   url = "https://github.com/ONLYOFFICE/" + repo + ".git"
   if any(repo in s for s in ltirepo):
     url = "https://github.com/msilveirabr/" + repo + ".git"
@@ -755,7 +755,7 @@ def generate_doctrenderer_config(path, root, product, vendor = ""):
 
   vendor_dir = vendor
   if ("" == vendor_dir):
-    vendor_dir = "sdkjs" if (product == "builder") else "web-apps"
+    vendor_dir = "sdkjs" if (product == "builder") else "web-apps2"
     vendor_dir = root + vendor_dir + "/vendor/"
 
   content += ("<file>" + vendor_dir + "xregexp/xregexp-all-min.js</file>\n")
