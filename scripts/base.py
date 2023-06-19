@@ -452,6 +452,7 @@ def git_update(repo, is_no_errors=False, is_current_dir=False, git_owner=""):
     folder = repo
   is_not_exit = False
   if not is_dir(folder):
+    print("Updating git repo: " + repo + "owner: " + owner + "to:" + folder)
     retClone = cmd("git", ["clone", url, folder], is_no_errors)
     if retClone != 0:
       return
